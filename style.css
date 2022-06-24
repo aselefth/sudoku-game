@@ -71,3 +71,11 @@ input {
     font-weight: 500;
     background-color: white;
 }
+
+.third {
+    border-bottom: 3px solid black;
+}
+
+.third-right {
+    border-right: 3px solid black;
+}

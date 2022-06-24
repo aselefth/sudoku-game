@@ -79,3 +79,15 @@ input {
 .third-right {
     border-right: 3px solid black;
 }
+
+button {
+    font-size: 2rem;
+    border: none;
+    width: 1em;
+    height: 1em;
+    border-radius: 3px;
+}
+
+button:active {
+    background-color: lightgray;
+}

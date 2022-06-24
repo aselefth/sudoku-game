@@ -1,5 +1,7 @@
 const uls = document.querySelectorAll("ul");
+const inputs = document.querySelectorAll('button');
 const lis = [];
+let memory = undefined;
 const inp = document.querySelector("input");
 const setNumbers = [[], [], [], [], [], [], [], [], []];
 const solution = [
@@ -37,7 +39,8 @@ function addListeners() {
         for (let j = 0; j < lis[i].length; j++) {
             if (lis[i][j].classList.contains("base") == false) {
                 lis[i][j].addEventListener("click", function () {
-                    lis[i][j].innerHTML = inp.value;
+                    if (memory !== undefined) {
+                        lis[i][j].innerHTML = memory;
                     if (lis[i][j].innerHTML == solution[i][j]) {
                         if (lis[i][j].classList.contains("error")) {
                             lis[i][j].classList.remove("error");
@@ -49,6 +52,7 @@ function addListeners() {
                         lis[i][j].classList.add("error");
                     }
                     checkForWin();
+                    }
                 });
             }
         }
@@ -62,3 +66,9 @@ function checkForWin() {
         }, 300);
     }
 }
+
+inputs.forEach(function(inp) {
+    inp.addEventListener('click', function() {
+        memory = inp.innerHTML;
+    })
+})
